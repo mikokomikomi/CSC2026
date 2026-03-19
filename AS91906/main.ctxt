@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=main
-comment0.text=\r\n\ Has\ the\ main\ class\ and\ Handles\ user\ input\ and\ the\ User\ Interface\r\n\r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V1\ -\ 19/03/2026\r\n
+comment0.text=\r\n\ Has\ the\ main\ class\ and\ Handles\ user\ input\ and\ the\ User\ Interface\r\n\r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V2\ -\ 20/03/2026\r\n
 comment1.params=
 comment1.target=main()
 numComments=2

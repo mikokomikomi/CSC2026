@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=AccountLibrary
+comment0.text=\r\n\ Class\ which\ reads\ and\ writes\ the\ bank\ accounts\ to\ the\ \r\n\r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V2\ -\ 20/03/2026\r\n
+comment1.params=reading
+comment1.target=AccountLibrary(boolean)
+comment2.params=
+comment2.target=void\ writeLibrary()
+comment3.params=newAccount
+comment3.target=void\ addAccount(BankAccount)
+comment3.text=\r\n\ This\ method\ deletes\ an\ account\ to\ the\ library\r\n
+comment4.params=currentAccount
+comment4.target=void\ deleteAccount(int)
+comment4.text=\r\n\ This\ method\ adds\ an\ account\ to\ the\ library\r\n
+comment5.params=
+comment5.target=void\ displayAll()
+comment5.text=\r\n\ This\ method\ prints\ every\ account's\ Customer\ name\ and\ Account\ number\ along\ with\ their\ referall\ number\r\n
+numComments=6

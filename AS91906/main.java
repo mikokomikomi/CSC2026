@@ -5,11 +5,12 @@ import java.util.Collections;
  * Has the main class and Handles user input and the User Interface
  *
  * @author Miko Peszynski
- * @version V1 - 19/03/2026
+ * @version V2 - 20/03/2026
  */
 public class main
 {
     private Scanner keyboard = new Scanner(System.in);
+    AccountLibrary myAccountLibrary = new AccountLibrary(true);
     public main(){
         System.out.println("You are Creating an Account");
         System.out.println("What is the Customer's name?");
@@ -25,6 +26,7 @@ public class main
         keyboard.nextLine();
 
         BankAccount tempAccount = new BankAccount(tempName,tempAccountNumber,tempAddress,tempAccountType,tempBalance);
-
+        myAccountLibrary.addAccount(tempAccount);
+        myAccountLibrary.displayAll(); 
     }
 }
