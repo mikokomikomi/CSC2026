@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=AccountList
+comment0.text=\r\n\ Class\ which\ reads\ and\ writes\ the\ bank\ accounts\ to\ the\ \r\n\r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V1\ -\ 19/03/2026\r\n
+comment1.params=reading
+comment1.target=AccountList(boolean)
+numComments=2
