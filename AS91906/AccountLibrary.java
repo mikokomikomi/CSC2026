@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Class which reads and writes the bank accounts to the 
  *
  * @author Miko Peszynski
- * @version V2 - 20/03/2026
+ * @version V3 - 23/03/2026
  */
 public class AccountLibrary
 {
@@ -50,12 +50,13 @@ public class AccountLibrary
         bankAccountLibrary.add(newAccount);
     }
 
-        /*
+    /*
      * This method adds an account to the library
      */
     public void deleteAccount(int currentAccount){
         bankAccountLibrary.remove(currentAccount);
     }
+
     /*
      * This method prints every account's Customer name and Account number along with their referall number
      */
