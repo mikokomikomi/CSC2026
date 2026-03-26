@@ -62,7 +62,7 @@ public class main
                     String tempAddress = keyboard.nextLine();
                     System.out.println("What type of account is it (EveryDay, Savings, or Current)?");
                     String tempAccountType = keyboard.nextLine();
-                    System.out.println("What is the account's current balance?");
+                    System.out.println("What is the account's current balance in NZD?");
                     double tempBalance = keyboard.nextDouble();
                     keyboard.nextLine();
 
@@ -90,15 +90,24 @@ public class main
                 case DEPOSITACTION:
                     myAccountLibrary.displayAll();//displays so the user can see all of the reference numbers
                     System.out.println("-----");
-                    System.out.println("Type in the account which balance your getting's referral number (The ordered number which is on the far left)");
+                    System.out.println("Type in the account which you're depositing into's referral number (The ordered number which is on the far left)");
                     tempReferralNumber = keyboard.nextInt();
-                    myAccountLibrary.viewAccountBalance(tempReferralNumber-1);
+                    myAccountLibrary.viewAccountBalance(tempReferralNumber-1);//Shows the user how much money is currently in the account prior to the deposit
                     System.out.println("-----");
+                    System.out.println("How much do you want to deposit (NZD)");
                     tempBalanceChange = keyboard.nextInt();
                     myAccountLibrary.changeAccountBalance(tempReferralNumber-1,tempBalanceChange,true);
                     break;
                 case WITHDRAWACTION:
                     myAccountLibrary.displayAll();//displays so the user can see all of the reference numbers
+                    System.out.println("-----");
+                    System.out.println("Type in the account which you're withdrawing from's referral number (The ordered number which is on the far left)");
+                    tempReferralNumber = keyboard.nextInt();
+                    myAccountLibrary.viewAccountBalance(tempReferralNumber-1);//Shows the user how much money is currently in the account prior to the deposit
+                    System.out.println("-----");
+                    System.out.println("How much do you want to deposit (NZD)");
+                    tempBalanceChange = keyboard.nextInt();
+                    myAccountLibrary.changeAccountBalance(tempReferralNumber-1,tempBalanceChange,false);
                     break;
                 case ENDACTION://Shows the total amount of money in the bank, ends the program and writes it to the txt file
                     System.out.println("Here is the total amount of money in this bank");
@@ -110,9 +119,16 @@ public class main
             }
         }
     }
-
-    private void referralCheck(){
-
-    
+/*
+ * reliable input checker method for referral numbers
+ */
+    private int readReferralNum(String prompt){
+        System.out.println(prompt);
+        while (!keyboard.hasNextInt()){
+        keyboard.nextLine();
+        System.out.println("No. Please ");
+        
+        }
+        return keyboard.nextInt();
     }
 }

@@ -99,7 +99,7 @@ public class AccountLibrary
         }else{
             newBalance -= amountChange;
         }
-        System.out.println("This account's balance is $" + bankAccountLibrary.get(whichAccount).setBalance(newBalance));//
+        System.out.println("This account's balance is $" + bankAccountLibrary.get(whichAccount).setBalance(newBalance));//Sets the new balance and prints it
 
     }
 }
