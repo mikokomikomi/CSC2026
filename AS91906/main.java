@@ -10,7 +10,7 @@ import java.util.Collections;
 public class main
 {
     private Scanner keyboard = new Scanner(System.in);
-    AccountLibrary myAccountLibrary = new AccountLibrary(true);
+    private AccountLibrary myAccountLibrary = new AccountLibrary(true);
     public main(){
         boolean ongoing = true;
         /*
@@ -23,13 +23,15 @@ public class main
         final int DEPOSITACTION = 5;//Adds money to the account
         final int WITHDRAWACTION = 6;//Withdraws money to the account
         final int ENDACTION = 7;//ends the program
-
+        System.out.println("Welcome to this bank account managing software");
         /*
          * While loop 
          */
         while(ongoing){
-            int action;
-            action = keyboard.nextInt();
+            int action;//the int for controlling which action is being done
+            int tempReferralNumber;// This is the number which is typed in to refer to a specific account. Which account has which number is decided by its place in the arraylist
+            int tempBalanceChange;
+            System.out.println("-----");
             System.out.println("What do you want to do?");
             System.out.println("-----");
             System.out.println("1 - Print the whole library");
@@ -40,6 +42,8 @@ public class main
             System.out.println("6 - Withdraw from an account");
             System.out.println("7 - End the program");
             System.out.println("-----");
+            action = keyboard.nextInt();
+            keyboard.nextLine();
             /*
              * Switch statement for every action the user can do
              */
@@ -47,7 +51,7 @@ public class main
                 case PRINTACTION:
                     myAccountLibrary.displayAll();
                     break;
-                case CREATEACTION:
+                case CREATEACTION://Account creating action, asks the user the specifications of the account they're making
                     System.out.println("You are creating an Account");
                     System.out.println("-----");
                     System.out.println("What is the Customer's name?");
@@ -64,25 +68,51 @@ public class main
 
                     BankAccount tempAccount = new BankAccount(tempName,tempAccountNumber,tempAddress,tempAccountType,tempBalance);
                     myAccountLibrary.addAccount(tempAccount);
-                    myAccountLibrary.displayAll(); 
-                    myAccountLibrary.writeLibrary();
+                    System.out.println(tempAccount.getName()+"'s account was successfully added!");
+                    System.out.println("-----");
                     break;
                 case CLOSEACTION:
                     myAccountLibrary.displayAll();//displays so the user can see all of the reference numbers
+                    System.out.println("-----");
+                    System.out.println("Type in the account which you want to delete's referral number (The ordered number which is on the far left)");
+                    tempReferralNumber = keyboard.nextInt();
+                    myAccountLibrary.deleteAccount(tempReferralNumber-1);
+                    System.out.println("-----");
                     break;
                 case GETACTION:
                     myAccountLibrary.displayAll();//displays so the user can see all of the reference numbers
+                    System.out.println("-----");
+                    System.out.println("Type in the account which balance your getting's referral number (The ordered number which is on the far left)");
+                    tempReferralNumber = keyboard.nextInt();
+                    myAccountLibrary.viewAccountBalance(tempReferralNumber-1);
+                    System.out.println("-----");
                     break;
                 case DEPOSITACTION:
                     myAccountLibrary.displayAll();//displays so the user can see all of the reference numbers
+                    System.out.println("-----");
+                    System.out.println("Type in the account which balance your getting's referral number (The ordered number which is on the far left)");
+                    tempReferralNumber = keyboard.nextInt();
+                    myAccountLibrary.viewAccountBalance(tempReferralNumber-1);
+                    System.out.println("-----");
+                    tempBalanceChange = keyboard.nextInt();
+                    myAccountLibrary.changeAccountBalance(tempReferralNumber-1,tempBalanceChange,true);
                     break;
                 case WITHDRAWACTION:
                     myAccountLibrary.displayAll();//displays so the user can see all of the reference numbers
                     break;
-                case ENDACTION:
+                case ENDACTION://Shows the total amount of money in the bank, ends the program and writes it to the txt file
+                    System.out.println("Here is the total amount of money in this bank");
+                    myAccountLibrary.displayTotalMoney();
+                    System.out.println("Ending and Writing to file");
                     ongoing = false;
+                    myAccountLibrary.writeLibrary();
                     break;
             }
         }
+    }
+
+    private void referralCheck(){
+
+    
     }
 }

@@ -67,4 +67,39 @@ public class AccountLibrary
             System.out.println(numberLabel+". "+currentAccount.getName()+" - "+currentAccount.getAccountNumber());
         }
     }
+
+    /*
+     * This method prints the total amount of money in the online bank - used when ending by typing 7
+     */
+    public void displayTotalMoney(){
+        int totalMoney = 0;
+        for (BankAccount currentAccount : bankAccountLibrary){
+            totalMoney += currentAccount.getBalance();
+
+        }
+        System.out.println(totalMoney);
+    }
+
+    /*
+     * This method prints a specific account's balance dictated by the user - used when getting account balance when typing 4, 5, or 6 
+     */
+    public void viewAccountBalance(int whichAccount){
+        System.out.println("This account's balance is $" + bankAccountLibrary.get(whichAccount).getBalance());//
+
+    }
+
+    /*
+     * This method changes a specific account's balance both the amount and which acount 
+     *  dictated by the user - used when depositing and withdrawing money from an account by typing 5 and 6 respectively 
+     */
+    public void changeAccountBalance(int whichAccount, double amountChange,boolean depositing){
+        double newBalance = bankAccountLibrary.get(whichAccount).getBalance(); 
+        if (depositing == true){//if statement controlling whether you are depositing or withdrawing money
+            newBalance += amountChange;
+        }else{
+            newBalance -= amountChange;
+        }
+        System.out.println("This account's balance is $" + bankAccountLibrary.get(whichAccount).setBalance(newBalance));//
+
+    }
 }

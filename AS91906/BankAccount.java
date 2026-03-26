@@ -50,4 +50,8 @@ public class BankAccount
     public String getAll (){//getter for all of the accounts values
         return this.name+","+this.accountNumber+","+this.address+","+this.accountType+","+String.valueOf(this.balance);
     }
+    
+    public double setBalance (double newBalance){//setter for account balance
+    return this.balance = newBalance;
+    }
 }
