@@ -102,4 +102,8 @@ public class AccountLibrary
         System.out.println("This account's balance is $" + bankAccountLibrary.get(whichAccount).setBalance(newBalance));//Sets the new balance and prints it
 
     }
+
+    public int amountOfAccount (){
+        return bankAccountLibrary.size();
+    }
 }

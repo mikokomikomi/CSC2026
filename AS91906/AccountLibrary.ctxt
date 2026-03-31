@@ -23,4 +23,6 @@ comment7.text=\r\n\ This\ method\ prints\ a\ specific\ account's\ balance\ dicta
 comment8.params=whichAccount\ amountChange\ depositing
 comment8.target=void\ changeAccountBalance(int,\ double,\ boolean)
 comment8.text=\r\n\ This\ method\ changes\ a\ specific\ account's\ balance\ both\ the\ amount\ and\ which\ acount\ \r\n\ \ dictated\ by\ the\ user\ -\ used\ when\ depositing\ and\ withdrawing\ money\ from\ an\ account\ by\ typing\ 5\ and\ 6\ respectively\ \r\n
-numComments=9
+comment9.params=
+comment9.target=int\ amountOfAccount()
+numComments=10

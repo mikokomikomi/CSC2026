@@ -30,7 +30,8 @@ public class main
         while(ongoing){
             int action;//the int for controlling which action is being done
             int tempReferralNumber;// This is the number which is typed in to refer to a specific account. Which account has which number is decided by its place in the arraylist
-            int tempBalanceChange;
+            int tempBalanceChange;// temp variable used when changing balance (withdraw or deposit)
+            String prompt;
             System.out.println("-----");
             System.out.println("What do you want to do?");
             System.out.println("-----");
@@ -82,9 +83,8 @@ public class main
                 case GETACTION:
                     myAccountLibrary.displayAll();//displays so the user can see all of the reference numbers
                     System.out.println("-----");
-                    System.out.println("Type in the account which balance your getting's referral number (The ordered number which is on the far left)");
-                    tempReferralNumber = keyboard.nextInt();
-                    myAccountLibrary.viewAccountBalance(tempReferralNumber-1);
+                    prompt = "Type in the account which balance your getting's referral number (The ordered number which is on the far left)";
+                    myAccountLibrary.viewAccountBalance(readReferralNum(prompt));
                     System.out.println("-----");
                     break;
                 case DEPOSITACTION:
@@ -119,16 +119,29 @@ public class main
             }
         }
     }
-/*
- * reliable input checker method for referral numbers
- */
+
+    /*
+     * reliable input checker method for referral numbers
+     */
     private int readReferralNum(String prompt){
         System.out.println(prompt);
-        while (!keyboard.hasNextInt()){
-        keyboard.nextLine();
-        System.out.println("No. Please ");
-        
+        int amountOfReferral = myAccountLibrary.amountOfAccount();
+        int answer = 0;
+        boolean asking = true;
+        while (asking == true){
+            while (!keyboard.hasNextInt()){
+                keyboard.nextLine();
+                System.out.println("No. Please "+prompt);
+
+            }
+            answer = keyboard.nextInt();
+            if (amountOfReferral >= answer || 1 <= answer){
+                asking = false;
+            }else{
+                System.out.println("No. Please "+prompt);
+            }
+            keyboard.nextLine();
         }
-        return keyboard.nextInt();
+        return answer-1;
     }
 }
