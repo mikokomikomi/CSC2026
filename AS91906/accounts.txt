@@ -1,6 +1,5 @@
 thegreenmen,52,ur house,Savings,300.0
-pietre grippin,123444534243424322,Rhode island russia,,6.0
-joseph johnson,32215,142 Greenday road,Savings,8999.0
-Dave,33,12,Current,344.0
-jermoe,34,12,everyday,67.0
-dave Johnson,43,beepity boopity,Savings,56.2
+pietre grippin,123444534243424322,Rhode island russia,,-4995.0
+joseph johnson,32215,142 Greenday road,Savings,4080.0
+Dave,33,12,Current,443.0
+joe 12321232,78782,jacksonville,everyday,11890.2
