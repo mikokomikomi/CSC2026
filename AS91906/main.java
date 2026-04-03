@@ -5,7 +5,7 @@ import java.util.Collections;
  * Has the main class which is where the program runs from and Handles user input and the User Interface
  *
  * @author Miko Peszynski
- * @version V7 - 01/04/2026
+ * @version V8 - 03/04/2026
  */
 public class main
 {
@@ -16,7 +16,7 @@ public class main
         /*
          * block of final ints for actions the user can do
          */
-        final int PRINTACTION = 1; //Prints the library along with the reference number which the user needs when referencing a specific account
+        final int PRINTACTION = 1; //Prints the library along with the referral number which the user needs when referencing a specific account
         final int CREATEACTION = 2;//Creates an account
         final int CLOSEACTION = 3;//Closes an account
         final int GETACTION = 4;//Gets the balance of an account
@@ -25,7 +25,7 @@ public class main
         final int ENDACTION = 7;//ends the program
         System.out.println("Welcome to this bank account managing software");
         /*
-         * While loop 
+         * While loop for whether the code is ongoing
          */
         while(ongoing){
             int action;//the int for controlling which action is being done
@@ -38,7 +38,7 @@ public class main
             System.out.println("1 - Print the whole library");
             System.out.println("2 - Create an account");
             System.out.println("3 - Close an account");
-            System.out.println("4 - Get an account's balance");
+            System.out.println("4 - Get an account's balance and type");
             System.out.println("5 - Deposit into an account");
             System.out.println("6 - Withdraw from an account");
             System.out.println("7 - End the program");
@@ -52,12 +52,12 @@ public class main
                     myAccountLibrary.displayAll();
                     break;
                 case CREATEACTION://Account creating action, asks the user the specifications of the account they're making
-                    System.out.println("You are creating an Account. Please use no commas when entering the data.");
+                    System.out.println("You are creating an Account. Please use no semicolons when entering the data.");
                     System.out.println("-----");
                     prompt = "What is the Customer's name?";
                     String tempName = readString(prompt);
                     prompt = "What is the Account's Account Number?";
-                    String tempAccountNumber = readString(prompt);
+                    String tempAccountNumber = readAccountNumber(prompt);
                     prompt = "What is the Customer's address";
                     String tempAddress = readString(prompt);
                     prompt = "What type of account is it (EveryDay, Savings, or Current)?";
@@ -66,47 +66,51 @@ public class main
                     double tempBalance = readFirstBalance(prompt);
                     keyboard.nextLine();
 
-                    BankAccount tempAccount = new BankAccount(tempName,tempAccountNumber,tempAddress,tempAccountType,tempBalance);
+                    BankAccount tempAccount = new BankAccount(tempName,tempAccountNumber,tempAddress,tempAccountType,tempBalance);//creates the account object
                     myAccountLibrary.addAccount(tempAccount);
                     System.out.println(tempAccount.getName()+"'s account was successfully added!");
                     System.out.println("-----");
                     break;
-                case CLOSEACTION:
-                    myAccountLibrary.displayAll();//displays so the user can see all of the reference numbers
+                case CLOSEACTION://Account closing action, asks the user for a referral number then deletes the account associated with it
+                    myAccountLibrary.displayAll();//displays so the user can see all of the referral numbers
                     System.out.println("-----");
                     prompt = "Type in the account which you want to delete's referral number (The ordered number which is on the far left)";
                     myAccountLibrary.deleteAccount(readReferralNum(prompt));
                     System.out.println("This account was deleted");
                     System.out.println("-----");
                     break;
-                case GETACTION:
-                    myAccountLibrary.displayAll();//displays so the user can see all of the reference numbers
+                case GETACTION://Balance and type getting action, asks the user for a referral number then prints the balance and account type of the account associated with it
+                    myAccountLibrary.displayAll();//displays so the user can see all of the referral numbers
                     System.out.println("-----");
                     prompt = "Type in the account which balance your getting's referral number (The ordered number which is on the far left)";
                     myAccountLibrary.viewAccountBalance(readReferralNum(prompt));
                     System.out.println("-----");
                     break;
-                case DEPOSITACTION:
-                    myAccountLibrary.displayAll();//displays so the user can see all of the reference numbers
+                case DEPOSITACTION://Balance increasing action (depositing), asks the user for a referral number then increases the balance of the account associated with it by an amount dictated by the user
+                    myAccountLibrary.displayAll();//displays so the user can see all of the referral numbers
                     System.out.println("-----");
                     prompt = "Type in the account which you're depositing into's referral number (The ordered number which is on the far left)";
                     tempReferralNumber = readReferralNum(prompt);
                     myAccountLibrary.viewAccountBalance(tempReferralNumber);//Shows the user how much money is currently in the account prior to the deposit
                     System.out.println("-----");
-                    prompt = "How much do you want to deposit (NZD)";
-                    tempBalanceChange = balanceChange(prompt,true);
+                    prompt = "How much do you want to deposit (NZD) (no negatives)";
+                    tempBalanceChange = balanceChange(prompt,true);//deposits when the boolean says true and withdraws when false
                     myAccountLibrary.changeAccountBalance(tempReferralNumber,tempBalanceChange,true);
                     break;
-                case WITHDRAWACTION:
-                    myAccountLibrary.displayAll();//displays so the user can see all of the reference numbers
+                case WITHDRAWACTION://Balance decreasing action (withdrawing), asks the user for a referral number then decreases the balance of the account associated with it by an amount dictated by the user
+                    boolean asking = true;//boolean for repeatedly asking when inputting the amount to be withdrawn
+                    myAccountLibrary.displayAll();//displays so the user can see all of the referral numbers
                     System.out.println("-----");
                     prompt = "Type in the account which you're withdrawing from's referral number (The ordered number which is on the far left)";
                     tempReferralNumber = readReferralNum(prompt);
                     myAccountLibrary.viewAccountBalance(tempReferralNumber);//Shows the user how much money is currently in the account prior to the deposit
                     System.out.println("-----");
-                    prompt = "How much do you want to withdraw (NZD)(Max of 5000)";
-                    tempBalanceChange = balanceChange(prompt,false);
-                    myAccountLibrary.changeAccountBalance(tempReferralNumber,tempBalanceChange,false);
+                    while (asking){//acts to combine the reliable inputs in both classes and makes it repeatedly ask if outside boundaries
+                        asking = false;
+                        prompt = "How much do you want to withdraw (NZD)(Max of 5000 - no negatives)";
+                        tempBalanceChange = balanceChange(prompt,false);//deposits when the boolean says true and withdraws when false
+                        asking = myAccountLibrary.changeAccountBalance(tempReferralNumber,tempBalanceChange,false);
+                    }
                     break;
                 case ENDACTION://Shows the total amount of money in the bank, ends the program and writes it to the txt file
                     System.out.println("Here is the total amount of money in this bank");
@@ -130,14 +134,14 @@ public class main
         while (asking == true){
             while (!keyboard.hasNextInt()){//checks if the input was a string and if so asks again
                 keyboard.nextLine();
-                System.out.println("No. Please "+prompt);
+                System.out.println("INVALID. Please "+prompt);
 
             }
             answer = keyboard.nextInt();
             if (amountOfReferral >= answer && 1 <= answer){//checks whether the answer is within the boundaries and if so stops asking
                 asking = false;
             }else{
-                System.out.println("No. Please "+prompt);
+                System.out.println("INVALID. Please "+prompt);
             }
             keyboard.nextLine();
         }
@@ -154,14 +158,14 @@ public class main
         while (asking == true){
             while (!keyboard.hasNextInt()){//checks if the input was a string and if so asks again
                 keyboard.nextLine();
-                System.out.println("No. Please type a number from 1 to 7.");
+                System.out.println("INVALID. Please type a number from 1 to 7.");
 
             }
             answer = keyboard.nextInt();
             if (ACTCOUNT >= answer && 1 <= answer){//checks whether the answer is within the boundaries and if so stops asking
                 asking = false;
             }else{
-                System.out.println("No. Please type a number from 1 to 7.");
+                System.out.println("INVALID. Please type a number from 1 to 7.");
             }
             keyboard.nextLine();
         }
@@ -172,24 +176,23 @@ public class main
      * reliable input checker method for entering balance when adding an account to make sure it's not in the negative
      */
     private double readFirstBalance(String prompt){
-        final int MAXWITHDRAWAL = 5000;// final int with the Max you can withdraw from an account at once
         System.out.println(prompt);
         double answer = 0;//double holding the users answer
         boolean asking = true;//boolean controlling whether the user is being asked
         while (asking == true){
             while (!keyboard.hasNextDouble()){//checks if the input was a string and if so asks again
                 keyboard.nextLine();
-                System.out.println("No. Please "+prompt);
+                System.out.println("INVALID. Please "+prompt);
 
             }
             answer = keyboard.nextDouble();
-            if (0 <= answer){//checks whether the answer is within the boundaries and if so stops asking
+            if (0 <= answer){//checks whether the answer is within the boundaries and if so stops asking (no negatives even if a current account when adding as it doesn't make much sense to me for an accounts first balance to be in the negatives)
                 asking = false;
             }else{
-                System.out.println("No. Please "+prompt);
+                System.out.println("INVALID. Please "+prompt);
             }
         }
-        return answer-1;
+        return answer;
     }
 
     private double balanceChange(String prompt,boolean depositing){
@@ -200,7 +203,7 @@ public class main
         while (asking == true){
             while (!keyboard.hasNextDouble()){//checks if the input was a string and if so asks again
                 keyboard.nextLine();
-                System.out.println("No. Please "+prompt);
+                System.out.println("INVALID. Please try again. "+prompt);
 
             }
             answer = keyboard.nextDouble();
@@ -208,37 +211,58 @@ public class main
                 if (0 <= answer){//checks whether the answer is within the boundaries and if so stops asking
                     asking = false;
                 }else{
-                    System.out.println("No. Please "+prompt);
+                    System.out.println("INVALID. Please try again. "+prompt);
                 }
                 keyboard.nextLine();
             }else{
                 if (0 <= answer  && answer<=MAXWITHDRAWAL){//checks whether the answer is within the boundaries and if so stops asking
                     asking = false;
                 }else{
-                    System.out.println("No. Please "+prompt);
+                    System.out.println("INVALID. Please try again. "+prompt);
                 }
                 keyboard.nextLine();
 
             }
         }
-        return answer-1;
+        return answer;
     }
 
     /*
-     * reliable input checker method for Strings, makes sure that they don't have any commas so the data can be read properly
+     * reliable input checker method for Strings, makes sure that they don't have any semicolons so the data can be read properly
      */
     private String readString(String prompt){
         System.out.println(prompt);
         String answer = keyboard.nextLine();//int holding the users answer
         boolean asking = true;//boolean controlling whether the user is being asked
-        while (asking == true){//will ask repeatedly for a string until one without a comma is written
-            if (answer.contains(",")){
+        while (asking == true){//will ask repeatedly for a string until one without a semicolon is written
+            if (answer.contains(";")){
+                System.out.println("INVALID, Please type an answer without a semicolon.");
                 answer = keyboard.nextLine();
             }else {
                 asking = false;
             }
         }
         return answer;
+    }
+
+    /*
+     * reliable input checker method for Account number, making sure whats inputted is in fact a number, whilst keeping it a string
+     */
+    private String readAccountNumber(String prompt){
+        System.out.println(prompt);
+        int answer = 0;//int holding the users answer
+        boolean asking = true;//boolean controlling whether the user is being asked
+        while (asking == true){
+            while (!keyboard.hasNextInt()){//checks if the input was a string and if so asks again
+                keyboard.nextLine();
+                System.out.println("INVALID. Please "+ prompt);
+
+            }
+            asking = false;
+            answer = keyboard.nextInt();
+            keyboard.nextLine();
+        }
+        return String.valueOf(answer);
     }
 
     /*

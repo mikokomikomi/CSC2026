@@ -1,5 +1,4 @@
-thegreenmen,52,ur house,Savings,300.0
-pietre grippin,123444534243424322,Rhode island russia,,-4995.0
-joseph johnson,32215,142 Greenday road,Savings,4080.0
-Dave,33,12,Current,443.0
-joe 12321232,78782,jacksonville,everyday,11890.2
+Onika Maraj-Petty;08-0101-0423087-00;14 Mt View St, Wellington;Savings;400.06
+Christopher Wallace;08-0101-0684341-02;48B Mitchel Way, Wellington;Everyday;229.75
+Terrence Thornton;08-0104-0476665-00;118 The Shoreline, Wellington;Current;-251.0
+Peter;3423;!334;savings;90000.0

@@ -3,7 +3,7 @@
  * Bank Account object constructor
  *
  * @author Miko Peszynski
- * @version V7 - 01/04/2026
+ * @version V8 - 03/04/2026
  */
 public class BankAccount
 {
@@ -48,7 +48,7 @@ public class BankAccount
     }
 
     public String getAll (){//getter for all of the accounts values
-        return this.name+","+this.accountNumber+","+this.address+","+this.accountType+","+String.valueOf(this.balance);
+        return this.name+";"+this.accountNumber+";"+this.address+";"+this.accountType+";"+String.valueOf(this.balance);
     }
     
     public double setBalance (double newBalance){//setter for account balance

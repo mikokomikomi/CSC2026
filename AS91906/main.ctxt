@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=main
-comment0.text=\r\n\ Has\ the\ main\ class\ which\ is\ where\ the\ program\ runs\ from\ and\ Handles\ user\ input\ and\ the\ User\ Interface\r\n\r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V7\ -\ 01/04/2026\r\n
+comment0.text=\r\n\ Has\ the\ main\ class\ which\ is\ where\ the\ program\ runs\ from\ and\ Handles\ user\ input\ and\ the\ User\ Interface\r\n\r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V8\ -\ 03/04/2026\r\n
 comment1.params=
 comment1.target=main()
 comment2.params=prompt
@@ -16,8 +16,11 @@ comment5.params=prompt\ depositing
 comment5.target=double\ balanceChange(java.lang.String,\ boolean)
 comment6.params=prompt
 comment6.target=java.lang.String\ readString(java.lang.String)
-comment6.text=\r\n\ reliable\ input\ checker\ method\ for\ Strings,\ makes\ sure\ that\ they\ don't\ have\ any\ commas\ so\ the\ data\ can\ be\ read\ properly\r\n
+comment6.text=\r\n\ reliable\ input\ checker\ method\ for\ Strings,\ makes\ sure\ that\ they\ don't\ have\ any\ semicolons\ so\ the\ data\ can\ be\ read\ properly\r\n
 comment7.params=prompt
-comment7.target=java.lang.String\ readTypeString(java.lang.String)
-comment7.text=\r\n\ reliable\ input\ checker\ method\ for\ The\ Type\ string\ which\ you\ need\ to\ answer\ when\ creating\ an\ account,\ it\ ensures\ you\ create\ an\ account\ of\ 1\ of\ those\ 3\ types\r\n
-numComments=8
+comment7.target=java.lang.String\ readAccountNumber(java.lang.String)
+comment7.text=\r\n\ reliable\ input\ checker\ method\ for\ Account\ number,\ making\ sure\ whats\ inputted\ is\ in\ fact\ a\ number,\ whilst\ keeping\ it\ a\ string\r\n
+comment8.params=prompt
+comment8.target=java.lang.String\ readTypeString(java.lang.String)
+comment8.text=\r\n\ reliable\ input\ checker\ method\ for\ The\ Type\ string\ which\ you\ need\ to\ answer\ when\ creating\ an\ account,\ it\ ensures\ you\ create\ an\ account\ of\ 1\ of\ those\ 3\ types\r\n
+numComments=9
