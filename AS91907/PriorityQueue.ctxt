@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=PriorityQueue
+comment0.text=\r\n\ Priority\ queue\ constructor\r\n\r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V1\ -\ 21/05/2026\r\n
+comment1.params=
+comment1.target=PriorityQueue()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ PriorityQueue\r\n
+comment2.params=prepareTime\ teacher
+comment2.target=void\ enqueue(int,\ boolean)
+comment3.params=
+comment3.target=int\ dequeue()
+comment4.params=
+comment4.target=boolean\ emptyQueue()
+numComments=5

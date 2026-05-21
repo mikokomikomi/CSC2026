@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Node
+comment0.text=\r\nNode\ constructor\r\n\r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V1\ -\ 21/05/2026\r\n
+comment1.params=
+comment1.target=Node()
+comment2.params=data
+comment2.target=Node(int)
+comment3.params=data
+comment3.target=void\ setData(int)
+comment4.params=n
+comment4.target=void\ setNextNode(Node)
+comment5.params=
+comment5.target=int\ getData()
+comment6.params=
+comment6.target=Node\ getNextNode()
+numComments=7
