@@ -3,16 +3,20 @@
  * Main class
  *
  * @author Miko Peszynski
- * @version V1 - 21/05/2026
+ * @version V2 - 05/06/2026
  */
 public class main
 {
     // instance variables - replace the example below with your own
-    PriorityQueue line = new PriorityQueue();
-
+    private Data nodeData = new Data(true);
+    private PriorityQueue line = new PriorityQueue();
+    
 
     public main()
     {
-        line.enqueue(2,true);
+        int egg = 1;
+        line.enqueue(1,true);
+        nodeData.displayAll();
+        nodeData.runProcess();
     }
 }

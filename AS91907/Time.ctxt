@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Time
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Time\ here.\r\n\r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V2\ -\ 05/06/2026\r\n
+comment1.params=time\ students\ teachers\ served
+comment1.target=Time(int,\ int,\ int,\ int)
+comment2.params=
+comment2.target=int\ getTime()
+comment3.params=
+comment3.target=int\ getStudents()
+comment4.params=
+comment4.target=int\ getTeachers()
+comment5.params=
+comment5.target=int\ getServed()
+comment6.params=
+comment6.target=java.lang.String\ getAll()
+numComments=7
