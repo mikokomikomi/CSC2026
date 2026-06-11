@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Queue
-comment0.text=\r\n\ Queue\ constructor\ class\r\n\ \r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V1\ -\ 21/05/2026\r\n
+comment0.text=\r\n\ Queue\ constructor\ class\r\n\ \r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V3\ -\ 11/06/2026\r\n
 comment1.params=
 comment1.target=Queue()
 comment2.params=

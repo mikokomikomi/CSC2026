@@ -3,7 +3,7 @@
  * Queue constructor class
  * 
  * @author Miko Peszynski
- * @version V1 - 21/05/2026
+ * @version V3 - 11/06/2026
  */
 public class Queue
 {

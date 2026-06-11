@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Reads the data from the file given to the program.
  *
  * @author Miko Peszynski
- * @version V2 - 05/06/2026
+ * @version V3 - 11/06/2026
  */
 public class Data
 {
@@ -52,27 +52,32 @@ public class Data
     public void runProcess(){
         int numberLabel = 0;
         int howManyInLine = 0;
+        int mean = 0;
         PriorityQueue line = new PriorityQueue();
         for (Time  currentTime : peopleData){//for each loop prints the account's name, account number, and address
             numberLabel += 1;
+            int nodeTime = currentTime.getTime();
             int studentCount = currentTime.getStudents();
             int teacherCount = currentTime.getTeachers();
             int amountServed = currentTime.getServed ();
             for (int i = 0;i<studentCount;i++){
-                line.enqueue(1,false);
+                line.enqueue(nodeTime,false);
                 howManyInLine++;
             }
             for (int i = 0;i<teacherCount;i++){
-                line.enqueue(1,true);  
+                line.enqueue(nodeTime,true);  
                 howManyInLine++;
             }
             for (int i = 0;i<amountServed;i++){
-                line.dequeue();
+                int joinDay = line.dequeue(); 
+                mean += nodeTime - joinDay;
                 if (howManyInLine>0){
                     howManyInLine--;
                 }
             }
             System.out.println(howManyInLine);
         }
+        mean = mean/numberLabel;
+        System.out.println("The average wait time is "+mean);
     }
 }

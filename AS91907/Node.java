@@ -3,7 +3,7 @@
  *Node constructor
  *
  * @author Miko Peszynski
- * @version V2 - 05/06/2026
+ * @version V3 - 05/06/2026
  */
 public class Node
 {
