@@ -3,7 +3,7 @@
  * Write a description of class Time here.
  *
  * @author Miko Peszynski
- * @version V3 - 11/06/2026
+ * @version V4 - 19/06/2026
  */
 public class Time
 {

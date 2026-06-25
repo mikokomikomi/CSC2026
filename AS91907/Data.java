@@ -21,9 +21,9 @@ public class Data
 
     }
 
-    public Data(boolean reading){
+    public Data(String dataset, boolean reading){
         try {
-            File myFile = new File ("arrivals.csv");//opens file
+            File myFile = new File (dataset);//opens file
             Scanner myReader = new Scanner(myFile);
 
             while(myReader.hasNextLine()){
@@ -60,6 +60,8 @@ public class Data
             int studentCount = currentTime.getStudents();
             int teacherCount = currentTime.getTeachers();
             int amountServed = currentTime.getServed ();
+            int howManyStudentInQueue = 0;
+            int howManyTeacherInQueue = 0;
             for (int i = 0;i<studentCount;i++){
                 line.enqueue(nodeTime,false);
                 howManyInLine++;
