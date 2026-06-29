@@ -3,7 +3,7 @@
  * Write a description of class Time here.
  *
  * @author Miko Peszynski
- * @version V4 - 19/06/2026
+ * @version V5 - 29/06/2026
  */
 public class Time
 {
@@ -19,19 +19,19 @@ public class Time
         this.served = served;
     }
 
-    public int getTime(){
+    public int getTime(){//getter for the time of a specific time
         return this.time;
     }
 
-    public int getStudents(){
+    public int getStudents(){//getter for the amount of students added on a specific time
         return this.students;
     }
 
-    public int getTeachers(){
+    public int getTeachers(){//getter for the amount of techers addedon a specific time
         return this.teachers;
     }
 
-    public int getServed(){
+    public int getServed(){//getter for the amount of people served on a specific time
         return this.served;
     }
     

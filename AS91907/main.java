@@ -3,7 +3,7 @@ import java.util.Scanner;
  * Main class
  *
  * @author Miko Peszynski
- * @version V4 - 19/06/2026
+ * @version V5 - 29/06/2026
  */
 public class main
 {
@@ -24,7 +24,7 @@ public class main
         
         while (ongoing){
             System.out.print("Type 1 to display all the data, Type 2 to run the process, type 3 to quit, Type 4 to switch dataset");
-            action = keyboard.nextInt();
+            action = readAction();
             switch (action){
                 case 1:
                     nodeData.displayAll();
@@ -45,5 +45,25 @@ public class main
                     break;
             }
         }
+    }
+        private int readAction(){
+        final int ACTCOUNT = 4;// final int with the total amount of different actions which can be done 
+        int answer = 0;//int holding the users answer
+        boolean asking = true;//boolean controlling whether the user is being asked
+        while (asking == true){
+            while (!keyboard.hasNextInt()){//checks if the input was a string and if so asks again
+                keyboard.nextLine();
+                System.out.println("INVALID. Please type a number from 1 to 4.");
+
+            }
+            answer = keyboard.nextInt();
+            if (ACTCOUNT >= answer && 1 <= answer){//checks whether the answer is within the boundaries and if so stops asking
+                asking = false;
+            }else{
+                System.out.println("INVALID. Please type a number from 1 to 4.");
+            }
+            keyboard.nextLine();
+        }
+        return answer;
     }
 }

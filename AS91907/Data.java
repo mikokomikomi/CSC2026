@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Reads the data from the file given to the program.
  *
  * @author Miko Peszynski
- * @version V3 - 11/06/2026
+ * @version V5 - 29/06/2026
  */
 public class Data
 {
@@ -22,22 +22,30 @@ public class Data
     }
 
     public Data(String dataset, boolean reading){
-        try {
-            File myFile = new File (dataset);//opens file
-            Scanner myReader = new Scanner(myFile);
+        boolean asking = true;
+        while (asking){
+            try {
+                File myFile = new File (dataset);//opens file
+                Scanner myReader = new Scanner(myFile);
 
-            while(myReader.hasNextLine()){
-                String line = myReader.nextLine();
-                String[] tempTime = line.split(",");  
-                int time = Integer.parseInt(tempTime[0]);
-                int students = Integer.parseInt(tempTime[1]);
-                int teachers = Integer.parseInt(tempTime[2]);
-                int served = Integer.parseInt(tempTime[3]);
-                peopleData.add(new Time(time,students,teachers,served));
+                while(myReader.hasNextLine()){
+                    String line = myReader.nextLine();
+                    String[] tempTime = line.split(",");  
+                    int time = Integer.parseInt(tempTime[0]);
+                    int students = Integer.parseInt(tempTime[1]);
+                    int teachers = Integer.parseInt(tempTime[2]);
+                    int served = Integer.parseInt(tempTime[3]);
+                    peopleData.add(new Time(time,students,teachers,served));
+                }
+                asking = false;
+            } catch(IOException e){
+                System.out.println("Error: could not read from file");
+                System.out.println("");
+                System.out.println("Which dataset do you want to use?");
+                System.out.println("Make sure the dataset file is inside the folder for this program.");
+                System.out.println("Make sure the file is a CSV file or a TXT seperated by commas.");
+                System.out.println("Make sure you write it like you would a file e.g. SchoolQueue.csv");
             }
-
-        } catch(IOException e){
-            System.out.println("Error: could not read from file");
         }
     }
 

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Node
-comment0.text=\r\nNode\ constructor\r\n\r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V4\ -\ 19/06/2026\r\n
+comment0.text=\r\nNode\ constructor\r\n\r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V5\ -\ 29/06/2026\r\n
 comment1.params=
 comment1.target=Node()
 comment2.params=data

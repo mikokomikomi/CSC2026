@@ -1,20 +1,18 @@
 #BlueJ class context
 comment0.target=Queue
-comment0.text=\r\n\ Queue\ constructor\ class\r\n\ \r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V4\ -\ 19/06/2026\r\n
+comment0.text=\r\n\ Queue\ constructor\ class\r\n\ \r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V5\ -\ 29/06/2026\r\n
 comment1.params=
 comment1.target=Queue()
 comment2.params=
 comment2.target=boolean\ emptyQueue()
+comment2.text=\r\n\ Checks\ if\ the\ queue\ is\ empty\r\n\ \r\n\ This\ is\ used\ in\ the\ emptyQueue\ method\ in\ the\ priority\ queue\ class\r\n\ \r\n\ @return\ returns\ true\ if\ the\ queue\ is\ empty\ and\ returns\ false\ if\ it\ has\ items\ in\ it\r\n
 comment3.params=node
 comment3.target=void\ enqueue(Node)
+comment3.text=\r\n\ Adds\ a\ Node\ element\ to\ the\ Queue\r\n\ \r\n\ If\ the\ queue\ is\ empty\ it\ will\ both\ Create\ a\ queue\ and\ add\ an\ element\ to\ said\ queue\r\n\ \r\n\ @param\ Takes\ in\ a\ node\ containing\ an\ int,\ in\ this\ code\ this\ int\ is\ the\ time\ the\ node\ enters\ the\ queue\r\n
 comment4.params=
 comment4.target=int\ dequeue()
+comment4.text=\r\n\ Removes\ the\ front\ node\ element\ of\ the\ queue\r\n\ \r\n\ \r\n
 comment5.params=howLong\ temp
 comment5.target=void\ queueLength(int,\ Node)
-comment6.params=node
-comment6.target=void\ addAtFront(Node)
-comment7.params=
-comment7.target=Node\ getBack()
-comment8.params=
-comment8.target=Node\ getFront()
-numComments=9
+comment5.text=\r\n\ \r\n
+numComments=6

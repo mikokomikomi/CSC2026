@@ -3,7 +3,7 @@
  * Queue constructor class
  * 
  * @author Miko Peszynski
- * @version V4 - 19/06/2026
+ * @version V5 - 29/06/2026
  */
 public class Queue
 {
@@ -15,6 +15,13 @@ public class Queue
 
     }
 
+    /**
+     * Checks if the queue is empty
+     * 
+     * This is used in the emptyQueue method in the priority queue class
+     * 
+     * @return returns true if the queue is empty and returns false if it has items in it
+     */
     public boolean emptyQueue(){
         if(this.front==null){
             return(true);
@@ -23,6 +30,13 @@ public class Queue
         } 
     }
 
+    /**
+     * Adds a Node element to the Queue
+     * 
+     * If the queue is empty it will both Create a queue and add an element to said queue
+     * 
+     * @param Takes in a node containing an int, in this code this int is the time the node enters the queue
+     */
     public void enqueue(Node node){
         if (this.emptyQueue()){
             this.front = node;
@@ -34,6 +48,11 @@ public class Queue
 
     }
 
+    /**
+     * Removes the front node element of the queue
+     * 
+     * 
+     */
     public int dequeue(){
         if(emptyQueue()){
             return 0;
@@ -42,9 +61,12 @@ public class Queue
             front = front.getNextNode();
             return frontInt;
         }
-        
+
     }
 
+    /**
+     * 
+     */
     public void queueLength(int howLong,Node temp){
         if (emptyQueue()){
             System.out.println(howLong);
@@ -58,16 +80,5 @@ public class Queue
                 System.out.println(howLong);
         }
     }
-    
-    public void addAtFront (Node node){
-        
-    }
-    
-    public Node getBack(){
-        return(this.back);
-    }
 
-    public Node getFront(){
-        return(this.front);
-    }
 }

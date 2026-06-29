@@ -3,7 +3,7 @@
  * Priority queue constructor
  *
  * @author Miko Peszynski
- * @version V4 - 19/06/2026
+ * @version V5 - 29/06/2026
  */
 public class PriorityQueue
 {
@@ -35,7 +35,7 @@ public class PriorityQueue
             return highP.dequeue();
     }
 
-    boolean emptyQueue(){// Checks if there is an empty Queue
+    boolean emptyQueue(){//Checks if both queues are empty
         if(highP.emptyQueue() && lowP.emptyQueue())
             return true;
         else
