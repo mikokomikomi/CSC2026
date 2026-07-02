@@ -3,7 +3,7 @@
  * Queue constructor class
  * 
  * @author Miko Peszynski
- * @version V5 - 29/06/2026
+ * @version V6 - 02/07/2026
  */
 public class Queue
 {
@@ -53,13 +53,13 @@ public class Queue
      * 
      * 
      */
-    public int dequeue(){
+    public Node dequeue(){
         if(emptyQueue()){
-            return 0;
+            return null;
         }else{
-            int frontInt = front.getData();
+            Node toDequeue = front;
             front = front.getNextNode();
-            return frontInt;
+            return toDequeue;
         }
 
     }

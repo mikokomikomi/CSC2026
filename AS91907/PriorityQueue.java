@@ -3,7 +3,7 @@
  * Priority queue constructor
  *
  * @author Miko Peszynski
- * @version V5 - 29/06/2026
+ * @version V6 - 02/07/2026
  */
 public class PriorityQueue
 {
@@ -20,15 +20,15 @@ public class PriorityQueue
         highP= new Queue();
     }
 
-    void enqueue(int currentTime, boolean teacher){
-        if (teacher)
-            highP.enqueue(new Node(currentTime));
+    void enqueue(int currentTime, boolean isStudent){
+        if (isStudent)
+            lowP.enqueue(new Node(currentTime,isStudent));
         else
-            lowP.enqueue(new Node(currentTime));
+            highP.enqueue(new Node(currentTime,isStudent));
 
     }
 
-    int dequeue(){ //dequeueing constructor
+    Node dequeue(){ //dequeueing constructor
         if(highP.emptyQueue()){
             return lowP.dequeue();
         }else

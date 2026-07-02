@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Reads the data from the file given to the program.
  *
  * @author Miko Peszynski
- * @version V5 - 29/06/2026
+ * @version V6 - 02/07/2026
  */
 public class Data
 {
@@ -60,6 +60,8 @@ public class Data
     public void runProcess(){
         int numberLabel = 0;
         int howManyInLine = 0;
+        int howManyStudentInLine = 0;
+        int howManyTeacherInLine = 0;
         int mean = 0;
         PriorityQueue line = new PriorityQueue();
         for (Time  currentTime : peopleData){//for each loop prints the account's name, account number, and address
@@ -68,24 +70,33 @@ public class Data
             int studentCount = currentTime.getStudents();
             int teacherCount = currentTime.getTeachers();
             int amountServed = currentTime.getServed ();
-            int howManyStudentInQueue = 0;
-            int howManyTeacherInQueue = 0;
+            
             for (int i = 0;i<studentCount;i++){
                 line.enqueue(nodeTime,false);
                 howManyInLine++;
+                howManyStudentInLine++;
             }
             for (int i = 0;i<teacherCount;i++){
                 line.enqueue(nodeTime,true);  
                 howManyInLine++;
+                howManyTeacherInLine++;
             }
             for (int i = 0;i<amountServed;i++){
-                int joinDay = line.dequeue(); 
-                mean += nodeTime - joinDay;
+                Node tempDay = line.dequeue(); 
+                mean += nodeTime - tempDay.getData();
                 if (howManyInLine>0){
                     howManyInLine--;
                 }
+                if (tempDay.getIsStudent() == true){
+                    howManyStudentInLine--;
+                }
+                if (tempDay.getIsStudent() == false){
+                    howManyTeacherInLine--;
+                }
             }
             System.out.println(howManyInLine);
+            System.out.println(howManyTeacherInLine);
+            System.out.println(howManyStudentInLine);
         }
         mean = mean/numberLabel;
         System.out.println("The average wait time is "+mean);

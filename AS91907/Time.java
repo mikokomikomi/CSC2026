@@ -3,8 +3,8 @@
  * Write a description of class Time here.
  *
  * @author Miko Peszynski
- * @version V5 - 29/06/2026
- */
+ * @version V6 - 02/07/2026
+*/
 public class Time
 {
     private int time;
