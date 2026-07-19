@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Time
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Time\ here.\r\n\r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V6\ -\ 02/07/2026\r\n
+comment0.text=\r\n\ contructor\ for\ the\ time\ object.\r\n\r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V7\ -\ 20/07/2026\r\n
 comment1.params=time\ students\ teachers\ served
 comment1.target=Time(int,\ int,\ int,\ int)
 comment2.params=

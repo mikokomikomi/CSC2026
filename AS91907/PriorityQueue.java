@@ -3,7 +3,7 @@
  * Priority queue constructor
  *
  * @author Miko Peszynski
- * @version V6 - 02/07/2026
+ * @version V7 - 20/07/2026
  */
 public class PriorityQueue
 {

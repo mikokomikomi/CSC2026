@@ -1,11 +1,11 @@
 #BlueJ class context
 comment0.target=Data
-comment0.text=\r\n\ Reads\ the\ data\ from\ the\ file\ given\ to\ the\ program.\r\n\r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V5\ -\ 29/06/2026\r\n
+comment0.text=\r\n\ Reads\ the\ data\ from\ the\ file\ given\ to\ the\ program.\r\n\r\n\ @author\ Miko\ Peszynski\r\n\ @version\ V7\ -\ 20/07/2026\r\n
 comment1.params=
 comment1.target=Data()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Data\r\n
-comment2.params=dataset\ reading
-comment2.target=Data(java.lang.String,\ boolean)
+comment2.params=reading
+comment2.target=Data(boolean)
 comment3.params=
 comment3.target=void\ displayAll()
 comment4.params=

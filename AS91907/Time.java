@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Time here.
+ * contructor for the time object.
  *
  * @author Miko Peszynski
- * @version V6 - 02/07/2026
+ * @version V7 - 20/07/2026
 */
 public class Time
 {
